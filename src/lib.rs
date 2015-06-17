@@ -107,78 +107,77 @@ pub mod wheels {
         };
     }
     
-    wheel!(ECSTACY_WHEEL        { PI * 0.5    , 0.8 });
-    wheel!(JOY_WHEEL            { PI * 0.5    , 0.5 });
-    wheel!(SERENITY_WHEEL       { PI * 0.5    , 0.2 });
-    wheel!(LOVE_WHEEL           { PI * 0.375  , 0.5 });
-    wheel!(ADMIRATION_WHEEL     { PI * 0.25   , 0.8 });
-    wheel!(TRUST_WHEEL          { PI * 0.25   , 0.5 });
-    wheel!(ACCEPTANCE_WHEEL     { PI * 0.25   , 0.2 });
-    wheel!(SUBMISSION_WHEEL     { PI * 0.125  , 0.5 });
-    wheel!(TERROR_WHEEL         { PI * 0.0    , 0.8 });
-    wheel!(FEAR_WHEEL           { PI * 0.0    , 0.5 });
-    wheel!(APPREHENSION_WHEEL   { PI * 0.0    , 0.2 });
-    wheel!(AWE_WHEEL            { PI * -0.125 , 0.5 });
-    wheel!(AMAZEMENT_WHEEL      { PI * -0.25  , 0.8 });
-    wheel!(SURPRISE_WHEEL       { PI * -0.25  , 0.5 });
-    wheel!(DISTRACTION_WHEEL    { PI * -0.25  , 0.2 });
-    wheel!(DISAPPROVAL_WHEEL    { PI * -0.375 , 0.5 });
-    wheel!(GRIEF_WHEEL          { PI * -0.5   , 0.8 });
-    wheel!(SADNESS_WHEEL        { PI * -0.5   , 0.5 });
-    wheel!(PENSIVENESS_WHEEL    { PI * -0.5   , 0.2 });
-    wheel!(REMORSE_WHEEL        { PI * -0.625 , 0.5 });
-    wheel!(LOATHING_WHEEL       { PI * -0.75  , 0.8 });
-    wheel!(DISGUST_WHEEL        { PI * -0.75  , 0.5 });
-    wheel!(BOREDOM_WHEEL        { PI * -0.75  , 0.2 });
-    wheel!(CONTEMPT_WHEEL       { PI * -0.875 , 0.5 });
-    wheel!(RAGE_WHEEL           { PI * -1.0   , 0.8 });
-    wheel!(ANGER_WHEEL          { PI * -1.0   , 0.5 });
-    wheel!(ANNOYANCE_WHEEL      { PI * -1.0   , 0.2 });
-    wheel!(AGGRESSIVENESS_WHEEL { PI * 0.875  , 0.5 });
-    wheel!(VIGILANCE_WHEEL      { PI * 0.75   , 0.8 });
-    wheel!(ANTICIPATION_WHEEL   { PI * 0.75   , 0.5 });
-    wheel!(INTEREST_WHEEL       { PI * 0.75   , 0.2 });
-    wheel!(OPTIMISM_WHEEL       { PI * 0.625  , 0.5 });
+    wheel!(ECSTACY        { PI * 0.5    , 0.8 });
+    wheel!(JOY            { PI * 0.5    , 0.5 });
+    wheel!(SERENITY       { PI * 0.5    , 0.2 });
+    wheel!(LOVE           { PI * 0.375  , 0.5 });
+    wheel!(ADMIRATION     { PI * 0.25   , 0.8 });
+    wheel!(TRUST          { PI * 0.25   , 0.5 });
+    wheel!(ACCEPTANCE     { PI * 0.25   , 0.2 });
+    wheel!(SUBMISSION     { PI * 0.125  , 0.5 });
+    wheel!(TERROR         { PI * 0.0    , 0.8 });
+    wheel!(FEAR           { PI * 0.0    , 0.5 });
+    wheel!(APPREHENSION   { PI * 0.0    , 0.2 });
+    wheel!(AWE            { PI * -0.125 , 0.5 });
+    wheel!(AMAZEMENT      { PI * -0.25  , 0.8 });
+    wheel!(SURPRISE       { PI * -0.25  , 0.5 });
+    wheel!(DISTRACTION    { PI * -0.25  , 0.2 });
+    wheel!(DISAPPROVAL    { PI * -0.375 , 0.5 });
+    wheel!(GRIEF          { PI * -0.5   , 0.8 });
+    wheel!(SADNESS        { PI * -0.5   , 0.5 });
+    wheel!(PENSIVENESS    { PI * -0.5   , 0.2 });
+    wheel!(REMORSE        { PI * -0.625 , 0.5 });
+    wheel!(LOATHING       { PI * -0.75  , 0.8 });
+    wheel!(DISGUST        { PI * -0.75  , 0.5 });
+    wheel!(BOREDOM        { PI * -0.75  , 0.2 });
+    wheel!(CONTEMPT       { PI * -0.875 , 0.5 });
+    wheel!(RAGE           { PI * -1.0   , 0.8 });
+    wheel!(ANGER          { PI * -1.0   , 0.5 });
+    wheel!(ANNOYANCE      { PI * -1.0   , 0.2 });
+    wheel!(AGGRESSIVENESS { PI * 0.875  , 0.5 });
+    wheel!(VIGILANCE      { PI * 0.75   , 0.8 });
+    wheel!(ANTICIPATION   { PI * 0.75   , 0.5 });
+    wheel!(INTEREST       { PI * 0.75   , 0.2 });
+    wheel!(OPTIMISM       { PI * 0.625  , 0.5 });
 }
 
 
 impl Deref for Emotion {
     type Target = Wheel;
     fn deref<'a>(&'a self) -> &'a Wheel {
-        use self::wheels::*;
         match *self {
-            Emotion::Ecstacy        => ECSTACY_WHEEL,
-            Emotion::Joy            => JOY_WHEEL,
-            Emotion::Serenity       => SERENITY_WHEEL,
-            Emotion::Love           => LOVE_WHEEL,
-            Emotion::Admiration     => ADMIRATION_WHEEL,
-            Emotion::Trust          => TRUST_WHEEL,
-            Emotion::Acceptance     => ACCEPTANCE_WHEEL,
-            Emotion::Submission     => SUBMISSION_WHEEL,
-            Emotion::Terror         => TERROR_WHEEL,
-            Emotion::Fear           => FEAR_WHEEL,
-            Emotion::Apprehension   => APPREHENSION_WHEEL,
-            Emotion::Awe            => AWE_WHEEL,
-            Emotion::Amazement      => AMAZEMENT_WHEEL,
-            Emotion::Surprise       => SURPRISE_WHEEL,
-            Emotion::Distraction    => DISTRACTION_WHEEL,
-            Emotion::Disapproval    => DISAPPROVAL_WHEEL,
-            Emotion::Grief          => GRIEF_WHEEL,
-            Emotion::Sadness        => SADNESS_WHEEL,
-            Emotion::Pensiveness    => PENSIVENESS_WHEEL,
-            Emotion::Remorse        => REMORSE_WHEEL,
-            Emotion::Loathing       => LOATHING_WHEEL,
-            Emotion::Disgust        => DISGUST_WHEEL,
-            Emotion::Boredom        => BOREDOM_WHEEL,
-            Emotion::Contempt       => CONTEMPT_WHEEL,
-            Emotion::Rage           => RAGE_WHEEL,
-            Emotion::Anger          => ANGER_WHEEL,
-            Emotion::Annoyance      => ANNOYANCE_WHEEL,
-            Emotion::Aggressiveness => AGGRESSIVENESS_WHEEL,
-            Emotion::Vigilance      => VIGILANCE_WHEEL,
-            Emotion::Anticipation   => ANTICIPATION_WHEEL,
-            Emotion::Interest       => INTEREST_WHEEL,
-            Emotion::Optimism       => OPTIMISM_WHEEL,
+            Emotion::Ecstacy        => wheels::ECSTACY,
+            Emotion::Joy            => wheels::JOY,
+            Emotion::Serenity       => wheels::SERENITY,
+            Emotion::Love           => wheels::LOVE,
+            Emotion::Admiration     => wheels::ADMIRATION,
+            Emotion::Trust          => wheels::TRUST,
+            Emotion::Acceptance     => wheels::ACCEPTANCE,
+            Emotion::Submission     => wheels::SUBMISSION,
+            Emotion::Terror         => wheels::TERROR,
+            Emotion::Fear           => wheels::FEAR,
+            Emotion::Apprehension   => wheels::APPREHENSION,
+            Emotion::Awe            => wheels::AWE,
+            Emotion::Amazement      => wheels::AMAZEMENT,
+            Emotion::Surprise       => wheels::SURPRISE,
+            Emotion::Distraction    => wheels::DISTRACTION,
+            Emotion::Disapproval    => wheels::DISAPPROVAL,
+            Emotion::Grief          => wheels::GRIEF,
+            Emotion::Sadness        => wheels::SADNESS,
+            Emotion::Pensiveness    => wheels::PENSIVENESS,
+            Emotion::Remorse        => wheels::REMORSE,
+            Emotion::Loathing       => wheels::LOATHING,
+            Emotion::Disgust        => wheels::DISGUST,
+            Emotion::Boredom        => wheels::BOREDOM,
+            Emotion::Contempt       => wheels::CONTEMPT,
+            Emotion::Rage           => wheels::RAGE,
+            Emotion::Anger          => wheels::ANGER,
+            Emotion::Annoyance      => wheels::ANNOYANCE,
+            Emotion::Aggressiveness => wheels::AGGRESSIVENESS,
+            Emotion::Vigilance      => wheels::VIGILANCE,
+            Emotion::Anticipation   => wheels::ANTICIPATION,
+            Emotion::Interest       => wheels::INTEREST,
+            Emotion::Optimism       => wheels::OPTIMISM,
         }
     }
 }
