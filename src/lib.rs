@@ -94,51 +94,58 @@ pub const EMOTIONS: &'static [Emotion; 32] = &[
 ];
 
 
-/// A macro for generating Emotion `Wheel` constants.
-macro_rules! wheel {
-    ($name:ident { $radians:expr, $weight:expr }) => {
-        pub const $name: &'static Wheel = &Wheel { radians: $radians, weight: $weight };
-    };
+pub mod wheels {
+    //!  const `Wheel`s associated with Plutchik's labelled emotions.
+
+    use std::f32::consts::PI;
+    use super::Wheel;
+
+    /// A macro for generating Emotion `Wheel` constants.
+    macro_rules! wheel {
+        ($name:ident { $radians:expr, $weight:expr }) => {
+            pub const $name: &'static Wheel = &Wheel { radians: $radians, weight: $weight };
+        };
+    }
+    
+    wheel!(ECSTACY_WHEEL        { PI * 0.5    , 0.8 });
+    wheel!(JOY_WHEEL            { PI * 0.5    , 0.5 });
+    wheel!(SERENITY_WHEEL       { PI * 0.5    , 0.2 });
+    wheel!(LOVE_WHEEL           { PI * 0.375  , 0.5 });
+    wheel!(ADMIRATION_WHEEL     { PI * 0.25   , 0.8 });
+    wheel!(TRUST_WHEEL          { PI * 0.25   , 0.5 });
+    wheel!(ACCEPTANCE_WHEEL     { PI * 0.25   , 0.2 });
+    wheel!(SUBMISSION_WHEEL     { PI * 0.125  , 0.5 });
+    wheel!(TERROR_WHEEL         { PI * 0.0    , 0.8 });
+    wheel!(FEAR_WHEEL           { PI * 0.0    , 0.5 });
+    wheel!(APPREHENSION_WHEEL   { PI * 0.0    , 0.2 });
+    wheel!(AWE_WHEEL            { PI * -0.125 , 0.5 });
+    wheel!(AMAZEMENT_WHEEL      { PI * -0.25  , 0.8 });
+    wheel!(SURPRISE_WHEEL       { PI * -0.25  , 0.5 });
+    wheel!(DISTRACTION_WHEEL    { PI * -0.25  , 0.2 });
+    wheel!(DISAPPROVAL_WHEEL    { PI * -0.375 , 0.5 });
+    wheel!(GRIEF_WHEEL          { PI * -0.5   , 0.8 });
+    wheel!(SADNESS_WHEEL        { PI * -0.5   , 0.5 });
+    wheel!(PENSIVENESS_WHEEL    { PI * -0.5   , 0.2 });
+    wheel!(REMORSE_WHEEL        { PI * -0.625 , 0.5 });
+    wheel!(LOATHING_WHEEL       { PI * -0.75  , 0.8 });
+    wheel!(DISGUST_WHEEL        { PI * -0.75  , 0.5 });
+    wheel!(BOREDOM_WHEEL        { PI * -0.75  , 0.2 });
+    wheel!(CONTEMPT_WHEEL       { PI * -0.875 , 0.5 });
+    wheel!(RAGE_WHEEL           { PI * -1.0   , 0.8 });
+    wheel!(ANGER_WHEEL          { PI * -1.0   , 0.5 });
+    wheel!(ANNOYANCE_WHEEL      { PI * -1.0   , 0.2 });
+    wheel!(AGGRESSIVENESS_WHEEL { PI * 0.875  , 0.5 });
+    wheel!(VIGILANCE_WHEEL      { PI * 0.75   , 0.8 });
+    wheel!(ANTICIPATION_WHEEL   { PI * 0.75   , 0.5 });
+    wheel!(INTEREST_WHEEL       { PI * 0.75   , 0.2 });
+    wheel!(OPTIMISM_WHEEL       { PI * 0.625  , 0.5 });
 }
-
-
-wheel!(ECSTACY_WHEEL        { PI * 0.5    , 0.8 });
-wheel!(JOY_WHEEL            { PI * 0.5    , 0.5 });
-wheel!(SERENITY_WHEEL       { PI * 0.5    , 0.2 });
-wheel!(LOVE_WHEEL           { PI * 0.375  , 0.5 });
-wheel!(ADMIRATION_WHEEL     { PI * 0.25   , 0.8 });
-wheel!(TRUST_WHEEL          { PI * 0.25   , 0.5 });
-wheel!(ACCEPTANCE_WHEEL     { PI * 0.25   , 0.2 });
-wheel!(SUBMISSION_WHEEL     { PI * 0.125  , 0.5 });
-wheel!(TERROR_WHEEL         { PI * 0.0    , 0.8 });
-wheel!(FEAR_WHEEL           { PI * 0.0    , 0.5 });
-wheel!(APPREHENSION_WHEEL   { PI * 0.0    , 0.2 });
-wheel!(AWE_WHEEL            { PI * -0.125 , 0.5 });
-wheel!(AMAZEMENT_WHEEL      { PI * -0.25  , 0.8 });
-wheel!(SURPRISE_WHEEL       { PI * -0.25  , 0.5 });
-wheel!(DISTRACTION_WHEEL    { PI * -0.25  , 0.2 });
-wheel!(DISAPPROVAL_WHEEL    { PI * -0.375 , 0.5 });
-wheel!(GRIEF_WHEEL          { PI * -0.5   , 0.8 });
-wheel!(SADNESS_WHEEL        { PI * -0.5   , 0.5 });
-wheel!(PENSIVENESS_WHEEL    { PI * -0.5   , 0.2 });
-wheel!(REMORSE_WHEEL        { PI * -0.625 , 0.5 });
-wheel!(LOATHING_WHEEL       { PI * -0.75  , 0.8 });
-wheel!(DISGUST_WHEEL        { PI * -0.75  , 0.5 });
-wheel!(BOREDOM_WHEEL        { PI * -0.75  , 0.2 });
-wheel!(CONTEMPT_WHEEL       { PI * -0.875 , 0.5 });
-wheel!(RAGE_WHEEL           { PI * -1.0   , 0.8 });
-wheel!(ANGER_WHEEL          { PI * -1.0   , 0.5 });
-wheel!(ANNOYANCE_WHEEL      { PI * -1.0   , 0.2 });
-wheel!(AGGRESSIVENESS_WHEEL { PI * 0.875  , 0.5 });
-wheel!(VIGILANCE_WHEEL      { PI * 0.75   , 0.8 });
-wheel!(ANTICIPATION_WHEEL   { PI * 0.75   , 0.5 });
-wheel!(INTEREST_WHEEL       { PI * 0.75   , 0.2 });
-wheel!(OPTIMISM_WHEEL       { PI * 0.625  , 0.5 });
 
 
 impl Deref for Emotion {
     type Target = Wheel;
     fn deref<'a>(&'a self) -> &'a Wheel {
+        use self::wheels::*;
         match *self {
             Emotion::Ecstacy        => ECSTACY_WHEEL,
             Emotion::Joy            => JOY_WHEEL,
