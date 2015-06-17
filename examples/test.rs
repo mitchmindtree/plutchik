@@ -1,5 +1,6 @@
 
 extern crate plutchik;
+extern crate rand;
 
 fn main() {
     use plutchik::{Emotion, EMOTIONS, Wheel};
@@ -43,7 +44,13 @@ fn main() {
     println!("\nMean (Average) Emotion");
     let emotions = [Emotion::Ecstacy, Emotion::Serenity, Emotion::Admiration, Emotion::Acceptance];
     let mean = Wheel::mean(&emotions);
+    assert!(mean.closest_emotion() == Emotion::Love);
     println!("The mean emotion of Ecstasy, Serenity, Admiration and Acceptance is {:?}! AKA {:?}.",
              mean.closest_emotion(), mean);
+
+    let emotions: Vec<Emotion> = (0..4).map(|_| rand::random()).collect();
+    let mean = Wheel::mean(&emotions);
+    println!("The mean emotion of {:?}, {:?}, {:?} and {:?} is {:?}. AKA {:?}.",
+             emotions[0], emotions[1], emotions[2], emotions[3], mean.closest_emotion(), mean);
 }
 

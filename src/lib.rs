@@ -3,6 +3,9 @@
 //!
 
 
+extern crate rand;
+
+
 use std::f32::consts::PI;
 use std::ops::Deref;
 
@@ -246,6 +249,23 @@ fn magnitude(vec: &[f32; 2]) -> f32 {
 }
 
 
+impl rand::Rand for Emotion {
+    fn rand<R: rand::Rng>(rng: &mut R) -> Emotion {
+        EMOTIONS[rng.gen_range(0, EMOTIONS.len())]
+    }
+}
+
+
+impl rand::Rand for Wheel {
+    fn rand<R: rand::Rng>(rng: &mut R) -> Wheel {
+        Wheel {
+            radians: rng.gen::<f32>() * PI * 2.0,
+            weight: rng.gen::<f32>(),
+        }
+    }
+}
+
+
 impl<'a> Into<[f32; 2]> for &'a Wheel {
     fn into(self) -> [f32; 2] {
         [self.radians.cos() * self.weight, self.radians.sin() * self.weight]
@@ -257,6 +277,7 @@ impl<'a> Into<[f32; 2]> for Wheel {
         [self.radians.cos() * self.weight, self.radians.sin() * self.weight]
     }
 }
+
 
 impl<'a> From<[f32; 2]> for Wheel {
     fn from(vec: [f32; 2]) -> Wheel {
