@@ -3,7 +3,7 @@
 
 A small type representation of [Robert Plutchik's](https://en.wikipedia.org/wiki/Robert_Plutchik) ["Wheel of Emotions"](https://en.wikipedia.org/wiki/Contrasting_and_categorization_of_emotions#/media/File:Plutchik-wheel.svg).
 
-- Use labeled `Emotion`s (i.e. Emotion::Ecstacy, Emotion::Terror, etc).
+- Use labeled `Emotion`s (i.e. `Emotion::Ecstacy`, `Emotion::Terror`, etc).
 - Design custom emotions using the `Wheel { radians: f32, weight: f32 }` representation.
 - Find the difference between two emotions (the magnitude of the vector that separates them on the Wheel).
 - Find the mean emotion of multiple given emotions i.e.
