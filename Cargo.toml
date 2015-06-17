@@ -1,0 +1,13 @@
+
+[package]
+name = "plutchik"
+version = "0.1.0"
+authors = ["mitchmindtree <mitchell.nordine@gmail.com>"]
+description = "A typification of Robert Plutchik's Wheel of Emotions."
+readme = "README.md"
+keywords = ["emotion", "plutchik", "tag", "aesthetic", "feeling"]
+license = "Apache-2.0/MIT"
+repository = "https://github.com/mitchmindtree/plutchik.git"
+homepage = "https://github.com/mitchmindtree/plutchik"
+
+
