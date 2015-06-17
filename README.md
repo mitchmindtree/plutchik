@@ -3,7 +3,7 @@
 
 A small type representation of [Robert Plutchik's](https://en.wikipedia.org/wiki/Robert_Plutchik) ["Wheel of Emotions"](https://en.wikipedia.org/wiki/Contrasting_and_categorization_of_emotions#/media/File:Plutchik-wheel.svg).
 
-![Image of the Wheel of Emotions](https://en.wikipedia.org/wiki/Contrasting_and_categorization_of_emotions#/media/File:Plutchik-wheel.svg)
+![Image of the Wheel of Emotions](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Plutchik-wheel.svg/715px-Plutchik-wheel.svg.png)
 
 For a demo, see the [example](https://github.com/mitchmindtree/plutchik/blob/master/examples/test.rs).
 
