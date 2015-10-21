@@ -11,5 +11,5 @@ repository = "https://github.com/mitchmindtree/plutchik.git"
 homepage = "https://github.com/mitchmindtree/plutchik"
 
 [dependencies]
-rand = "*"
+rand = "0.3.11"
 
