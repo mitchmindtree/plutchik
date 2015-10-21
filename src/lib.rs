@@ -13,7 +13,7 @@ use std::ops::Deref;
 /// Each of the emotions portrayed on Plutchik's emotion wheel.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
 pub enum Emotion {
-    Ecstacy,
+    Ecstasy,
     Joy,
     Serenity,
     Love,
@@ -59,7 +59,7 @@ pub struct Wheel {
 
 /// The full list of Plutchik's labelled emotions.
 pub const EMOTIONS: &'static [Emotion; 32] = &[
-    Emotion::Ecstacy,
+    Emotion::Ecstasy,
     Emotion::Joy,
     Emotion::Serenity,
     Emotion::Love,
@@ -106,8 +106,8 @@ pub mod wheels {
             pub const $name: &'static Wheel = &Wheel { radians: $radians, weight: $weight };
         };
     }
-    
-    wheel!(ECSTACY        { PI * 0.5    , 0.8 });
+
+    wheel!(ECSTASY        { PI * 0.5    , 0.8 });
     wheel!(JOY            { PI * 0.5    , 0.5 });
     wheel!(SERENITY       { PI * 0.5    , 0.2 });
     wheel!(LOVE           { PI * 0.375  , 0.5 });
@@ -146,7 +146,7 @@ impl Deref for Emotion {
     type Target = Wheel;
     fn deref<'a>(&'a self) -> &'a Wheel {
         match *self {
-            Emotion::Ecstacy        => wheels::ECSTACY,
+            Emotion::Ecstasy        => wheels::ECSTASY,
             Emotion::Joy            => wheels::JOY,
             Emotion::Serenity       => wheels::SERENITY,
             Emotion::Love           => wheels::LOVE,

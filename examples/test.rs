@@ -8,7 +8,7 @@ fn main() {
     println!("Robert Plutchik's wheel of emotions, typified!");
 
     println!("\nConversions");
-    let start_emotion = Emotion::Ecstacy;
+    let start_emotion = Emotion::Ecstasy;
     let wheel = *start_emotion;
     println!("{:?} to {:?}", &start_emotion, &wheel);
     let vec: [f32; 2] = wheel.into();
@@ -42,7 +42,7 @@ fn main() {
              some_wheel.opposite(), some_wheel.opposite().closest_emotion());
 
     println!("\nMean (Average) Emotion");
-    let emotions = [Emotion::Ecstacy, Emotion::Serenity, Emotion::Admiration, Emotion::Acceptance];
+    let emotions = [Emotion::Ecstasy, Emotion::Serenity, Emotion::Admiration, Emotion::Acceptance];
     let mean = Wheel::mean(&emotions);
     assert!(mean.closest_emotion() == Emotion::Love);
     println!("The mean emotion of Ecstasy, Serenity, Admiration and Acceptance is {:?}! AKA {:?}.",
